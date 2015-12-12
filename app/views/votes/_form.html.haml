@@ -1,0 +1,21 @@
+= form_for [@topic, @vote] do |f|
+  - if @vote.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@vote.errors.count, "error")} prohibited this vote from being saved:"
+      %ul
+        - @vote.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :created_by, 'Your Name'
+    = f.text_field :created_by, class: 'form-control', placeholder: 'Your Name'
+  .form-group
+    = hidden_field_tag 'vote[suggestion_ids_string]', @suggestions.collect(&:id).join(','), id: 'vote_suggestion_ids_string'
+    = f.label :vote_suggestion_ids_string, 'Ranked Choices'
+    %ul.suggestions
+      - @suggestions.each do |suggestion|
+        %li{id: suggestion.id}
+          %span &#x21D5;
+          = suggestion.title
+  .actions
+    = f.submit 'Save', class: 'btn btn-default'

@@ -1,6 +1,7 @@
 class Topic < ActiveRecord::Base
   # Relationships
   has_many :suggestions, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   # Validations
   validates :name, :description, :slug, :suggestions_start_at, :suggestions_end_at, :created_by, presence: true

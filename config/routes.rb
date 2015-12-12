@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :topics, only: [:show, :new, :create] do
     resources :suggestions, only: [:show, :new, :create]
+    resources :votes, only: [:index, :new, :create]
   end
 
   # Example of regular route:

@@ -1,0 +1,16 @@
+%h2= @topic.name
+
+%h4 Voting Breakdown
+
+- @votes.each do |vote|
+  %p= vote.created_by
+  %table.table
+    %thead
+      %tr
+        %th Rank
+        %th Choice
+    %tbody
+      - vote.suggestion_ids.each_with_index do |suggestion_id, rank|
+        %tr
+          %td= rank + 1
+          %td= @suggestions[suggestion_id]

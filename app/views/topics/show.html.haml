@@ -1,0 +1,21 @@
+%h2= @topic.name
+
+.row
+  .col-lg-8
+    %p.lead= @topic.description
+    %p
+      %strong Created by #{h(@topic.created_by)}
+
+    - if @topic.open_for_suggestions?
+      %p Open for suggestions until #{@topic.suggestions_end_at.strftime('%B %d, %Y %l:%M %P')}
+      %p Voting will begin when suggestions close
+      = link_to 'New Suggestion', new_topic_suggestion_path(@topic)
+  .col-lg-4
+    %h4 Current Suggestions
+
+    - if @topic.suggestions.blank?
+      None
+    - else
+      %ul
+        - @topic.suggestions.each do |suggestion|
+          %li= link_to suggestion.title, [@topic, suggestion]

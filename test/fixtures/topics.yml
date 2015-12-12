@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  slug: MyString
+  suggestions_start_at: 2015-12-11 15:31:02
+  suggestions_end_at: 2015-12-11 15:31:02
+  created_by: MyString
+
+two:
+  name: MyString
+  description: MyText
+  slug: MyString
+  suggestions_start_at: 2015-12-11 15:31:02
+  suggestions_end_at: 2015-12-11 15:31:02
+  created_by: MyString

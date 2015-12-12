@@ -1,0 +1,8 @@
+%h2= @topic.name
+
+.row
+  .col-lg-12
+    %p.lead= @suggestion.title
+    %p= @suggestion.description
+    %p
+      %strong Created by #{h(@topic.created_by)}

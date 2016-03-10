@@ -6,5 +6,14 @@
         - @topic.errors.full_messages.each do |msg|
           %li= msg
 
+  .form-group
+    = f.label :name, 'Name'
+    = f.text_field :name, class: 'form-control', placeholder: 'Name'
+  .form-group
+    = f.label :description, 'Description'
+    = f.text_area :description, class: 'form-control'
+  .form-group
+    = f.label :created_by, 'Your Name'
+    = f.text_field :created_by, class: 'form-control', placeholder: 'Your Name'
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-default'
